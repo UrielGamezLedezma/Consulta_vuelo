@@ -37,7 +37,7 @@ public class Vuelo {
     public string EstatusVuelo {get; set;} = string.Empty;
 
     [BsonElement("fecha_hora_salida")]
-    public DateTime FechaHoraSalidas {get; set;}
+    public DateTime FechaHoraSalida {get; set;}
 
     [BsonElement("fecha_hora_llegada_aproximada")]
     public DateTime FechaHoraLlegadaAproximada {get; set;}

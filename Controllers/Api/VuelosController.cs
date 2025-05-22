@@ -64,6 +64,19 @@ filters.Add(filterDestino);
 }
 
 if (!string.IsNullOrWhiteSpace(fechaInicial)){
+   if(DateTime.TryParse(fechaInicial, out DateTime fecha)){
+      var filtroFechaIni = Builders<Vuelo>.Filter.Gte(x => x.FechaHoraSalida, fecha);
+      filters.Add(filtroFechaIni);
+   }
+   
+}
+
+if (!string.IsNullOrWhiteSpace(fechaFinal)){
+   if(DateTime.TryParse(fechaFinal, out DateTime fecha)){
+      var filtroFechaFin = Builders<Vuelo>.Filter.Lte(x => x.FechaHoraSalida, 
+      new DateTime(fecha.Year, fecha.Month, fecha.Day, 23, 59, 59));
+      filters.Add(filtroFechaFin);
+   }
    
 }
 List<Vuelo> vuelos;
